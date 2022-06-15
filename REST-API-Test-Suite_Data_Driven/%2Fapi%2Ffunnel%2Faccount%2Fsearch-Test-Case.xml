@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="101c5ed2-cdd7-40e5-b8ac-9a4c5611c59c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/api/funnel/account/search Test Case" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [/api/funnel/account/search] located at [/api/funnel/account/search]</con:description>
+  <con:settings>
+    <con:setting id="101c5ed2-cdd7-40e5-b8ac-9a4c5611c59cfileName">%2Fapi%2Ffunnel%2Faccount%2Fsearch-Test-Case</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Data Source" id="e96bc999-bc8a-47ca-a3cf-fe45e58e8cb6">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>C:/Users/parazhi/OneDrive - Fintech/Documents/Accounts.xlsx</file>
+          <worksheet>Sheet1</worksheet>
+          <cell>A2</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Account</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Request 1" id="a83c02f4-65d3-48a3-bc1c-21c808999616">
+    <con:settings/>
+    <con:config service="REST API" resourcePath="/api/funnel/account/search" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Request 1" id="edf0b5ed-418f-4682-b0b2-f2c56cbdb017" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="acs_token" value="615d30e804e1ce001d23c335"/>
+  &lt;con:entry key="Accept" value="application/json"/>
+  &lt;con:entry key="Content-Type" value="application/json"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://devservice.lilypad.co</con:endpoint>
+        <con:request>{
+
+"bounds": {
+
+"_northEast": {
+
+"lat": 42.12115956273579,
+
+"lng": -87.8741707090231
+
+},
+
+"_southWest": {
+
+"lat": 41.862417999117575,
+
+"lng": -88.1419606884549
+
+}
+
+},
+
+"center": {
+
+"lat": 41.99192025297159,
+
+"lng": -88.00806569873899
+
+},
+
+"criteria": {
+
+"aging": true,
+
+"all": true,
+
+"current": true,
+
+"distList": [
+
+"BEECH",
+
+"BROWN",
+
+"CRGOOD",
+
+"CAVALIE",
+
+"BREAKDE"
+
+],
+
+"filterList": [],
+
+"potential": true,
+
+"searchText": "${Data Source#Account}",
+
+"thirtydays": "2022-03-28T06:43:10.460Z"
+
+},
+
+"type": "59440d108b03211f001de591",
+
+"version": "v5"
+
+}</con:request>
+        <con:originalUri>https://devservice.lilypad.co/api/funnel/account/search</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="territories" value="${Data Source#Account}"/>
+          <con:entry key="acs_token" value="${Data Source#Account}"/>
+          <con:entry key="version" value="${Data Source#Account}"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="d532a42e-0bd7-4238-acbb-b073e51846ef">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Data Source</dataSourceStep>
+      <targetStep>Request 1</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>e96bc999-bc8a-47ca-a3cf-fe45e58e8cb6</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a83c02f4-65d3-48a3-bc1c-21c808999616</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>d532a42e-0bd7-4238-acbb-b073e51846ef</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

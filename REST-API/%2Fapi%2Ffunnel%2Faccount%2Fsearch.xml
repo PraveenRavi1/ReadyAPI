@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/api/funnel/account/search" path="/api/funnel/account/search" id="ac448ccf-cec9-44ee-a056-26a07edc0f7d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ac448ccf-cec9-44ee-a056-26a07edc0f7dfileName">%2Fapi%2Ffunnel%2Faccount%2Fsearch</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="POST" id="a3c34f85-ea80-442c-9943-5283d1273b9d" method="POST">
+    <con:description>Retrieves all accounts within the map view</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>territories</con:name>
+        <con:style>QUERY</con:style>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>version</con:name>
+        <con:style>QUERY</con:style>
+        <con:dataType>number</con:dataType>
+        <con:description>version</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>acs_token</con:name>
+        <con:style>HEADER</con:style>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="edf0b5ed-418f-4682-b0b2-f2c56cbdb017" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://devservice.lilypad.co</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>
